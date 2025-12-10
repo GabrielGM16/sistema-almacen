@@ -6,6 +6,7 @@ require_once __DIR__ . "/../models/UserModel.php";
 
 class AuthController extends Controller {
     public function login() {
+        Session::logout();
         $token = Session::csrf();
         $this->view("login", ["token" => $token, "title" => "Iniciar sesión"]);
     }

@@ -1,0 +1,29 @@
+/* Estilos inspirados en ejemplo proporcionado */
+body{background:#0b1220;color:#e5e7eb}
+#version-link{position:fixed;top:10px;left:10px;z-index:1000}
+#version-link a{color:#94a3b8;text-decoration:none}
+#version-link a:hover{color:#e5e7eb}
+.credits-button{position:fixed;bottom:20px;right:20px;background:#2563eb;color:#fff;border:none;border-radius:50px;padding:10px 14px;cursor:pointer}
+.credits-button .tooltip{margin-left:6px}
+.credits{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1001}
+.credits .credits-container{max-width:800px;margin:60px auto;background:#111827;border:1px solid #1f2937;border-radius:12px;padding:20px}
+.credits .credit-card{display:flex;gap:12px;align-items:flex-start;background:#0f172a;border:1px solid #1f2937;border-radius:10px;padding:12px;margin-bottom:12px}
+.credits .avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#1f2937}
+.close-credits{position:absolute;top:20px;right:20px;background:#ef4444;border:none;color:#fff;border-radius:8px;padding:8px}
+#contenedor{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center;margin-top:40px}
+#imagen img{max-width:180px}
+#central{max-width:420px;width:100%}
+#login{background:#111827;border:1px solid #1f2937;border-radius:12px;padding:20px}
+.titulo{font-size:24px;font-weight:600;margin-bottom:12px}
+.formUsuario .input-container{display:flex;align-items:center;gap:10px;margin-bottom:12px;background:#0f172a;border:1px solid #334155;border-radius:10px;padding:10px}
+.formUsuario .input-container input{flex:1;background:transparent;border:none;outline:none;color:#e5e7eb}
+#btnIngresar{width:100%;padding:12px;background:#10b981;color:#fff;border:none;border-radius:10px;cursor:pointer}
+#btnIngresar:hover{filter:brightness(1.1)}
+.forgot-password{margin-top:10px}
+.forgot-password a{color:#94a3b8;text-decoration:none}
+.forgot-password a:hover{color:#e5e7eb}
+.container{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:24px}
+.loader{width:10px;height:10px;border-radius:50%;background:#2563eb;animation:updown 1s infinite}
+.loader:nth-child(2){animation-delay:.2s;background:#10b981}
+.loader:nth-child(3){animation-delay:.4s;background:#f59e0b}
+@keyframes updown{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
