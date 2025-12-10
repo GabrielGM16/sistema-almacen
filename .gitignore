@@ -1,65 +1,67 @@
-# ============================
-# SISTEMA SARPA - IGNORAR ARCHIVOS
-# ============================
+# =========================================
+# PHP / Composer
+# =========================================
+/vendor/
+composer.lock
 
-# --- Archivos del sistema ---
+# =========================================
+# Entornos y configuraciones sensibles
+# =========================================
+.env
+.env.*
+!.env.example
+
+# =========================================
+# Cache y logs
+# =========================================
+/storage/*.key
+/storage/logs/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+
+# =========================================
+# Archivos temporales
+# =========================================
+*.log
+*.cache
+*.tmp
+*.temp
+*.swp
+*.bak
+
+# =========================================
+# IDEs
+# =========================================
+
+# VSCode
+.vscode/
+
+# PhpStorm / JetBrains
+.idea/
+
+# =========================================
+# Sistema operativo
+# =========================================
+
+# macOS
 .DS_Store
+
+# Windows
 Thumbs.db
 desktop.ini
 
-# --- Configuración privada ---
-/config/*.php
-/config/*.ini
-/config/*.env
-.env
-.env.local
-*.env.*
-
-# --- Composer ---
-/vendor/
-/composer.lock
-
-# --- Logs ---
-*.log
-logs/
-*/logs/
-
-# --- Cache ---
-.cache/
-cache/
-tmp/
-temp/
-*/__pycache__/
-*.pyc
-
-# --- Archivos subidos por usuarios (no se deben versionar) ---
-/uploads/
-/assets/img/clientes/
-/assets/img/perfiles/
-/assets/img/productos_terminados/
-/assets/img/tickets/
-/recursos/reportStructures/diarios_completados/
-/recursos/reportStructures/archive/
-
-# --- Reportes generados ---
-*.pdf
-*.xlsx
-*.xls
-*.zip
-
-# --- Librerías externas que NO deben subirse ---
-/assets/js/vendor/
-/assets/css/vendor/
-
-# --- Node (si algún día agregas frontend) ---
-node_modules/
+# =========================================
+# Laravel específico (si lo usas)
+# =========================================
+/node_modules/
+/public/storage
+/public/hot
+/public/mix-manifest.json
 npm-debug.log
+yarn-error.log
 
-# --- IDE / Editor ---
-.vscode/
-.idea/
-*.swp
-
-# --- Sistema operativo ---
-ehthumbs.db
-Icon?
+# =========================================
+# PHPUnit
+# =========================================
+.phpunit.result.cache
