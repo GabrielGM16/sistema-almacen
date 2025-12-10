@@ -5,4 +5,9 @@ class Controller {
         extract($data);
         require __DIR__ . "/../views/$view.php";
     }
+
+    protected function redirect($path) {
+        header("Location: " . BASE_URL . $path);
+        exit;
+    }
 }
