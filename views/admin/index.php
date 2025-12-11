@@ -75,13 +75,13 @@ if ($con) {
 $hora = date('H');
 if ($hora >= 6 && $hora < 12) {
     $saludo = "Buenos días";
-    $iconoSaludo = "🌅";
+    $iconoSaludo = "";
 } elseif ($hora >= 12 && $hora < 19) {
     $saludo = "Buenas tardes";
-    $iconoSaludo = "☀️";
+    $iconoSaludo = "";
 } else {
     $saludo = "Buenas noches";
-    $iconoSaludo = "🌙";
+    $iconoSaludo = "";
 }
 
 // Nombre del usuario para el saludo
@@ -246,7 +246,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
         
         <!-- Mensaje de Bienvenida Personalizado -->
         <div class="welcome">
-            <h2><?php echo $saludo; ?>, <?php echo htmlspecialchars($nombrePrimero); ?>! <?php echo $iconoSaludo; ?></h2>
+            <h2><?php echo $saludo; ?>, <?php echo htmlspecialchars($nombrePrimero); ?>!</h2>
             <p>Este es tu panel de control. Aquí puedes gestionar todos los aspectos del sistema de almacén.</p>
         </div>
 
@@ -290,11 +290,11 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
             <!-- Columna Principal -->
             <div>
                 <!-- Accesos Rápidos -->
-                <h3 class="section-title">⚡ Accesos Rápidos</h3>
+                <h3 class="section-title">Accesos Rápidos</h3>
                 <div class="quick-actions">
                     <div class="card card-primary">
                         <div class="card-icon">
-                            <div class="icon">👥</div>
+                            <div class="icon"></div>
                             <div style="flex: 1;">
                                 <h3>Gestión de Usuarios</h3>
                                 <p>Administra usuarios, roles y permisos del sistema</p>
@@ -305,7 +305,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
 
                     <div class="card card-success">
                         <div class="card-icon">
-                            <div class="icon" style="background: linear-gradient(135deg, #50c878, #45b369);">🔐</div>
+                            <div class="icon" style="background: linear-gradient(135deg, #50c878, #45b369);"></div>
                             <div style="flex: 1;">
                                 <h3>Roles y Permisos</h3>
                                 <p>Define roles y asigna permisos de acceso</p>
@@ -316,7 +316,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
 
                     <div class="card card-warning">
                         <div class="card-icon">
-                            <div class="icon" style="background: linear-gradient(135deg, #f39c12, #e67e22);">📊</div>
+                            <div class="icon" style="background: linear-gradient(135deg, #f39c12, #e67e22);"></div>
                             <div style="flex: 1;">
                                 <h3>Reportes del Sistema</h3>
                                 <p>Consulta estadísticas y genera reportes</p>
@@ -327,7 +327,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
 
                     <div class="card card-danger">
                         <div class="card-icon">
-                            <div class="icon" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">⚙️</div>
+                            <div class="icon" style="background: linear-gradient(135deg, #e74c3c, #c0392b);"></div>
                             <div style="flex: 1;">
                                 <h3>Configuración</h3>
                                 <p>Ajustes generales del sistema</p>
@@ -338,7 +338,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
 
                     <div class="card">
                         <div class="card-icon">
-                            <div class="icon" style="background: linear-gradient(135deg, #3498db, #2980b9);">🔍</div>
+                            <div class="icon" style="background: linear-gradient(135deg, #3498db, #2980b9);"></div>
                             <div style="flex: 1;">
                                 <h3>Auditoría</h3>
                                 <p>Revisa logs y actividad del sistema</p>
@@ -349,7 +349,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
 
                     <div class="card">
                         <div class="card-icon">
-                            <div class="icon" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">🔔</div>
+                            <div class="icon" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);"></div>
                             <div style="flex: 1;">
                                 <h3>Notificaciones</h3>
                                 <p>Gestiona alertas y notificaciones</p>
@@ -360,7 +360,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
                 </div>
 
                 <!-- Actividad Reciente -->
-                <h3 class="section-title">📈 Actividad Reciente del Sistema</h3>
+                <h3 class="section-title">Actividad Reciente del Sistema</h3>
                 <div class="activity-card">
                     <?php if (empty($actividadReciente)): ?>
                         <p class="muted text-center">No hay actividad registrada</p>
@@ -370,9 +370,9 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
                                 <div class="activity-icon">
                                     <?php
                                     // Icono según el estado de la sesión
-                                    if ($actividad['estado'] == 'activa') echo ' ';
-                                    elseif ($actividad['estado'] == 'cerrada') echo '🔴';
-                                    else echo '🟡';
+                                    if ($actividad['estado'] == 'activa') echo '';
+                                    elseif ($actividad['estado'] == 'cerrada') echo '';
+                                    else echo '';
                                     ?>
                                 </div>
                                 <div class="activity-info">
@@ -409,7 +409,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
             <!-- Sidebar Derecho -->
             <div>
                 <!-- Últimos Usuarios Registrados -->
-                <h3 class="section-title">👤 Últimos Registros</h3>
+                <h3 class="section-title">Últimos Registros</h3>
                 <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px;">
                     <?php if (empty($ultimosUsuarios)): ?>
                         <p class="muted">No hay usuarios registrados</p>
@@ -443,7 +443,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
                 </div>
 
                 <!-- Información del Sistema -->
-                <h3 class="section-title">ℹ️ Información del Sistema</h3>
+                <h3 class="section-title">Información del Sistema</h3>
                 <div class="card">
                     <h3>Estado del Sistema</h3>
                     <div style="margin: 16px 0;">
@@ -476,10 +476,10 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
                 <div class="card mt-3">
                     <h3>Herramientas Rápidas</h3>
                     <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
-                        <a href="./backup.php" class="btn btn-sm btn-outline btn-block">  Respaldo del Sistema</a>
-                        <a href="./limpiar_sesiones.php" class="btn btn-sm btn-outline btn-block">🧹 Limpiar Sesiones</a>
-                        <a href="./logs.php" class="btn btn-sm btn-outline btn-block">📄 Ver Logs</a>
-                        <a href="../../logout.php" class="btn btn-sm danger btn-block" onclick="return confirm('¿Deseas cerrar la sesión?');">🚪 Cerrar Sesión</a>
+                        <a href="./backup.php" class="btn btn-sm btn-outline btn-block">Respaldo del Sistema</a>
+                        <a href="./limpiar_sesiones.php" class="btn btn-sm btn-outline btn-block">Limpiar Sesiones</a>
+                        <a href="./logs.php" class="btn btn-sm btn-outline btn-block">Ver Logs</a>
+                        <a href="../../logout.php" class="btn btn-sm danger btn-block" onclick="return confirm('¿Deseas cerrar la sesión?');">Cerrar Sesión</a>
                     </div>
                 </div>
             </div>
