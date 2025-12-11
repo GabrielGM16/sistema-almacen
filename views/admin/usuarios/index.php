@@ -477,7 +477,6 @@ mysqli_close($con);
                         <table class="table" id="tablaUsuarios">
                             <thead>
                                 <tr>
-                                    <th>Avatar</th>
                                     <th>ID</th>
                                     <th>Código</th>
                                     <th>Nombre Completo</th>
@@ -494,19 +493,13 @@ mysqli_close($con);
                             <tbody>
                                 <?php if (empty($usuarios)): ?>
                                     <tr>
-                                        <td colspan="10" class="text-center muted">
+                                        <td colspan="<?php echo $idRol == 1 ? 9 : 8; ?>" class="text-center muted">
                                             No hay usuarios registrados
                                         </td>
                                     </tr>
                                 <?php else: ?>
                                     <?php foreach ($usuarios as $u): ?>
                                         <tr data-activo="<?php echo $u['activo']; ?>">
-                                            <td>
-                                                <img src="../../../assets/images/perfiles/<?php echo htmlspecialchars($u['imagen_perfil'] ?? 'default-avatar.png'); ?>" 
-                                                     alt="Avatar" 
-                                                     class="user-avatar-mini"
-                                                     onerror="this.src='../../../assets/images/default-avatar.png'">
-                                            </td>
                                             <td><strong><?php echo intval($u['id_usuario']); ?></strong></td>
                                             <td><code><?php echo htmlspecialchars($u['codigo_empleado']); ?></code></td>
                                             <td>
