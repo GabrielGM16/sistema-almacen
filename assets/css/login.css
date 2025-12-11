@@ -1,0 +1,687 @@
+/* ==================== VARIABLES DE COLOR ==================== */
+:root {
+    --primary-color: #e65100;
+    --secondary-color: #f57c00;
+    --accent-color: #ff9800;
+    --accent-light: #ffb74d;
+    --success-color: #4caf50;
+    --warning-color: #ffc107;
+    --danger-color: #f44336;
+    --light-bg: #fff3e0;
+    --dark-text: #5d4037;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== RESET Y ESTILOS GLOBALES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 50%, #e65100 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ==================== FONDO ANIMADO ==================== */
+body::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 152, 0, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(245, 124, 0, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(255, 193, 7, 0.2) 0%, transparent 50%);
+    animation: moveBackground 20s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes moveBackground {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-50px, -50px); }
+}
+
+/* ==================== VERSION LINK ==================== */
+#version-link {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 18px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+#version-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+#version-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#version-link a i {
+    color: var(--accent-color);
+}
+
+/* ==================== CONTENEDOR PRINCIPAL ==================== */
+#contenedor {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ==================== IMAGEN Y LOGO ==================== */
+#imagen {
+    text-align: center;
+    animation: slideInLeft 1s ease;
+    position: relative;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+#logoImage {
+    width: 250px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+    transition: opacity 0.5s ease;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+#logoImage.fade-out {
+    opacity: 0;
+}
+
+.warehouse-animation {
+    margin-top: 20px;
+    font-size: 3rem;
+    color: var(--white);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* ==================== FORMULARIO DE LOGIN ==================== */
+#central {
+    animation: slideInRight 1s ease;
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+#login {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    min-width: 400px;
+    transition: all 0.3s ease;
+}
+
+#login:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+}
+
+.titulo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-align: center;
+    transition: all 1s ease;
+}
+
+.subtitulo {
+    font-size: 1rem;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.fade-in {
+    animation: fadeInText 1s ease;
+}
+
+.fade-out {
+    animation: fadeOutText 1s ease;
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutText {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+/* ==================== INPUTS ==================== */
+.formUsuario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container i {
+    position: absolute;
+    left: 15px;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.input-container input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+.input-container input:focus + i {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.input-container input.input-error {
+    border-color: var(--danger-color);
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.input-container input.input-error:focus {
+    border-color: var(--danger-color);
+    box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1);
+}
+
+/* Toggle Password */
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    color: #999;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: var(--accent-color);
+}
+
+/* ==================== BOTÓN DE INGRESAR ==================== */
+#btnIngresar {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+}
+
+#btnIngresar:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.5);
+}
+
+#btnIngresar:active {
+    transform: translateY(0);
+}
+
+/* ==================== FORGOT PASSWORD ==================== */
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forgot-password a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.forgot-password a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* ==================== INFO EXTRAS ==================== */
+.info-extras {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.info-extras p {
+    font-size: 0.85rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.info-extras i {
+    color: var(--success-color);
+}
+
+/* ==================== LOADER CONTAINER ==================== */
+#loaderContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 50%, #e65100 100%);
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.warehouse-loader {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.box {
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: boxJump 1.5s ease-in-out infinite;
+}
+
+.box1 { animation-delay: 0s; }
+.box2 { animation-delay: 0.3s; }
+.box3 { animation-delay: 0.6s; }
+
+@keyframes boxJump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-40px); }
+}
+
+.forklift {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: var(--white);
+    animation: forkliftMove 3s ease-in-out infinite;
+}
+
+@keyframes forkliftMove {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+.loader-text {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-top: 40px;
+    font-weight: 600;
+    animation: textPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ==================== CREDITS SECTION ==================== */
+.credits {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 400px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    padding: 30px;
+    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    overflow-y: auto;
+}
+
+.credits.show-credits {
+    right: 0;
+}
+
+.close-credits {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--danger-color);
+    color: var(--white);
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+}
+
+.close-credits:hover {
+    background: #c0392b;
+    transform: rotate(90deg);
+}
+
+.credits-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.credit-card {
+    background: var(--light-bg);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.credit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+}
+
+.credit-card h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.credit-card .role {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.credit-card p {
+    color: #555;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* ==================== CREDITS BUTTON ==================== */
+.credits-button {
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 20px rgba(255, 152, 0, 0.4);
+    transition: all 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.credits-button:hover {
+    transform: scale(1.1) rotate(360deg);
+    box-shadow: 0 6px 25px rgba(255, 152, 0, 0.6);
+}
+
+.credits-button .tooltip {
+    position: absolute;
+    right: 70px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.credits-button:hover .tooltip {
+    opacity: 1;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+    #contenedor {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    #logoImage {
+        width: 200px;
+    }
+
+    #login {
+        min-width: 350px;
+        padding: 30px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    #contenedor {
+        padding: 15px;
+    }
+
+    #login {
+        min-width: 300px;
+        padding: 25px 30px;
+    }
+
+    .titulo {
+        font-size: 2rem;
+    }
+
+    #logoImage {
+        width: 150px;
+    }
+
+    .credits {
+        width: 100%;
+        right: -100%;
+    }
+
+    .credits-button {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    #version-link {
+        bottom: 80px;
+        left: 10px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #login {
+        min-width: 280px;
+        padding: 20px 25px;
+    }
+
+    .titulo {
+        font-size: 1.8rem;
+    }
+
+    .subtitulo {
+        font-size: 0.9rem;
+    }
+
+    .input-container input {
+        padding: 12px 12px 12px 45px;
+        font-size: 0.95rem;
+    }
+
+    #btnIngresar {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    #logoImage {
+        width: 120px;
+    }
+}
+
+/* ==================== SCROLL BAR PERSONALIZADO ==================== */
+.credits::-webkit-scrollbar {
+    width: 8px;
+}
+
+.credits::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.credits::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+.credits::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* ==================== ANIMACIONES ADICIONALES ==================== */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translate3d(0, 0, 0);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0.89);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translate3d(0, 0, 0);
+    }
+}
+
+.bounce-in {
+    animation: bounceIn 0.8s ease;
+}

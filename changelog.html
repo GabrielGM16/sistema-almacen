@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Versiones - Sistema de Almacén</title>
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 50%, #e65100 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #ff9800;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #e65100;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+        }
+
+        .back-button i {
+            margin-right: 8px;
+        }
+
+        .version {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(to right, #fff3e0, #ffffff);
+            border-left: 5px solid #ff9800;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .version:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .version-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .version-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        .version-date {
+            color: #666;
+            font-size: 0.95rem;
+            background: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .version-date i {
+            margin-right: 5px;
+            color: #ff9800;
+        }
+
+        .version-type {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .version-type.major {
+            background: #e65100;
+            color: white;
+        }
+
+        .version-type.minor {
+            background: #ff9800;
+            color: white;
+        }
+
+        .version-type.patch {
+            background: #ffb74d;
+            color: #5d4037;
+        }
+
+        .changes-section {
+            margin-top: 20px;
+        }
+
+        .changes-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #5d4037;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .changes-title i {
+            margin-right: 8px;
+            color: #ff9800;
+        }
+
+        .changes-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .changes-list li {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .changes-list li i {
+            margin-right: 12px;
+            margin-top: 3px;
+            font-size: 1.1rem;
+        }
+
+        .changes-list li.new i {
+            color: #4caf50;
+        }
+
+        .changes-list li.improved i {
+            color: #2196f3;
+        }
+
+        .changes-list li.fixed i {
+            color: #ff9800;
+        }
+
+        .changes-list li.removed i {
+            color: #f44336;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .version-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .version-number {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.php" class="back-button">
+            <i class="fas fa-arrow-left"></i> Volver al Login
+        </a>
+
+        <div class="header">
+            <h1><i class="fas fa-warehouse"></i> Sistema de Almacén</h1>
+            <p>Historial de Versiones y Actualizaciones</p>
+        </div>
+
+        <!-- Versión 1.0.0 -->
+        <div class="version">
+            <div class="version-header">
+                <span class="version-number">v1.0.0</span>
+                <span class="version-date">
+                    <i class="far fa-calendar-alt"></i> 11 de Diciembre, 2024
+                </span>
+            </div>
+            <span class="version-type major">Lanzamiento Inicial</span>
+
+            <div class="changes-section">
+                <div class="changes-title">
+                    <i class="fas fa-star"></i> Características Principales
+                </div>
+                <ul class="changes-list">
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Sistema de autenticación seguro con encriptación</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Diseño responsive adaptable a todos los dispositivos</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Progressive Web App (PWA) con funcionalidad offline</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Gestión de inventario y productos</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Control de entradas y salidas de almacén</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Reportes y estadísticas en tiempo real</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="changes-section">
+                <div class="changes-title">
+                    <i class="fas fa-palette"></i> Interfaz
+                </div>
+                <ul class="changes-list">
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Tema amarillo-naranja representativo de almacén</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Animaciones fluidas y transiciones suaves</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Iconografía intuitiva con Font Awesome</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="changes-section">
+                <div class="changes-title">
+                    <i class="fas fa-shield-alt"></i> Seguridad
+                </div>
+                <ul class="changes-list">
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Protección contra inyección SQL</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Validación de datos en cliente y servidor</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Sesiones seguras con tokens</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Versión Futura (Ejemplo) -->
+        <div class="version" style="opacity: 0.6; border-left-color: #ccc;">
+            <div class="version-header">
+                <span class="version-number" style="color: #999;">v1.1.0</span>
+                <span class="version-date" style="background: #f5f5f5;">
+                    <i class="far fa-calendar-alt"></i> Próximamente
+                </span>
+            </div>
+            <span class="version-type minor" style="background: #ccc; color: #666;">Próxima Actualización</span>
+
+            <div class="changes-section">
+                <div class="changes-title" style="color: #999;">
+                    <i class="fas fa-rocket"></i> Mejoras Planificadas
+                </div>
+                <ul class="changes-list">
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Notificaciones push para alertas de inventario</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Escaneo de códigos de barras</span>
+                    </li>
+                    <li class="improved">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>Optimización de velocidad de carga</span>
+                    </li>
+                    <li class="new">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Exportación de reportes en PDF y Excel</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

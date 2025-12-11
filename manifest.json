@@ -1,0 +1,73 @@
+{
+  "name": "Sistema de Almacén",
+  "short_name": "Almacén",
+  "description": "Sistema integral de gestión de almacén e inventario",
+  "start_url": "./index.php",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff9800",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/img/warehouse-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/img/warehouse-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "screenshots": [
+    {
+      "src": "assets/img/screenshot1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/img/screenshot2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Inicio",
+      "short_name": "Home",
+      "description": "Ir a la página principal",
+      "url": "./index.php",
+      "icons": [
+        {
+          "src": "assets/img/home-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Inventario",
+      "short_name": "Inventario",
+      "description": "Ver inventario de productos",
+      "url": "./inventario.php",
+      "icons": [
+        {
+          "src": "assets/img/inventory-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false,
+  "scope": "./",
+  "lang": "es-MX",
+  "dir": "ltr"
+}
