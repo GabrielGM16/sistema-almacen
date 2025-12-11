@@ -65,7 +65,7 @@ if (!isset($_SESSION['idUsuario'])) {
 }
 
 // Incluir el sistema de control de acceso
-$access_control_path = __DIR__ . '/../access_control.php';
+$access_control_path = __DIR__ . '/acces_control.php';
 
 // Verificar si el archivo existe antes de incluirlo
 if (file_exists($access_control_path)) {

@@ -89,7 +89,7 @@ session_destroy();
             <div id="login">
                 <div class="titulo" id="tituloAnimado">Bienvenido</div>
                 <div class="subtitulo">Sistema de Almacén</div>
-                <form id="loginForm" autocomplete="off">
+                <form id="loginForm" autocomplete="off" action="login/solUsuario.php" method="post">
                     <div class="formUsuario">
                         <div class="input-container">
                             <i class="fas fa-user"></i>
