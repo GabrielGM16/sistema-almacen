@@ -342,7 +342,7 @@ mysqli_close($con);
                         <input type="hidden" name="action" value="crear_usuario">
                         
                         <!-- Información Básica -->
-                        <h4 style="margin-bottom: 16px; color: #344767;">📝 Información Básica</h4>
+                        <h4 style="margin-bottom: 16px; color: #344767;">  Información Básica</h4>
                         <div class="form-row">
                             <div class="field">
                                 <label class="required">Código de Empleado</label>
@@ -403,7 +403,7 @@ mysqli_close($con);
                         </div>
 
                         <!-- Seguridad -->
-                        <h4 style="margin: 20px 0 16px; color: #344767;">🔒 Seguridad</h4>
+                        <h4 style="margin: 20px 0 16px; color: #344767;"> Seguridad</h4>
                         <div class="form-row form-row-2">
                             <div class="field">
                                 <label class="required">Contraseña</label>
@@ -529,7 +529,7 @@ mysqli_close($con);
                                             <td class="text-center">
                                                 <?php if ($u['sesiones_activas'] > 0): ?>
                                                     <span class="badge badge-success" title="Sesiones activas">
-                                                        🟢 <?php echo $u['sesiones_activas']; ?>
+                                                        <?php echo $u['sesiones_activas']; ?>
                                                     </span>
                                                 <?php else: ?>
                                                     <span class="muted">—</span>
@@ -552,7 +552,7 @@ mysqli_close($con);
                                                         <button class="btn <?php echo $u['activo'] ? 'warn' : 'success'; ?> btn-sm btn-icon-only" 
                                                                 type="submit"
                                                                 title="<?php echo $u['activo'] ? 'Desactivar' : 'Activar'; ?>">
-                                                            <?php echo $u['activo'] ? '⏸️' : '▶️'; ?>
+                                                            <?php echo $u['activo'] ? ' ' : ' '; ?>
                                                         </button>
                                                     </form>
                                                     
@@ -560,23 +560,23 @@ mysqli_close($con);
                                                     <button class="btn secondary btn-sm btn-icon-only" 
                                                             onclick="abrirModalEditar(<?php echo intval($u['id_usuario']); ?>, <?php echo htmlspecialchars(json_encode($u), ENT_QUOTES); ?>)"
                                                             title="Editar">
-                                                        ✏️
+                                                         
                                                     </button>
                                                     
                                                     <!-- Botón Eliminar -->
                                                     <?php if ($u['id_usuario'] != $idUsuario): ?>
                                                     <form method="post" 
                                                           style="display:inline-block; margin: 0;" 
-                                                          onsubmit="return confirm('⚠️ ¿Estás seguro de eliminar al usuario <?php echo htmlspecialchars($nombreCompleto); ?>?\n\nEsta acción no se puede deshacer.');">
+                                                          onsubmit="return confirm('  ¿Estás seguro de eliminar al usuario <?php echo htmlspecialchars($nombreCompleto); ?>?\n\nEsta acción no se puede deshacer.');">
                                                         <input type="hidden" name="action" value="eliminar_usuario">
                                                         <input type="hidden" name="id_usuario" value="<?php echo intval($u['id_usuario']); ?>">
                                                         <button class="btn danger btn-sm btn-icon-only" type="submit" title="Eliminar">
-                                                            🗑️
+                                                             
                                                         </button>
                                                     </form>
                                                     <?php else: ?>
                                                     <button class="btn secondary btn-sm btn-icon-only" disabled title="No puedes eliminarte a ti mismo">
-                                                        🚫
+                                                         
                                                     </button>
                                                     <?php endif; ?>
                                                 </div>
@@ -661,7 +661,7 @@ mysqli_close($con);
                         Cancelar
                     </button>
                     <button type="submit" class="btn primary">
-                        💾 Guardar Cambios
+                          Guardar Cambios
                     </button>
                 </div>
             </form>
@@ -694,12 +694,12 @@ mysqli_close($con);
             const passwordConfirm = document.getElementById('password_confirm').value;
             
             if (password !== passwordConfirm) {
-                alert('⚠️ Las contraseñas no coinciden. Por favor verifica.');
+                alert('  Las contraseñas no coinciden. Por favor verifica.');
                 return false;
             }
             
             if (password.length < 8) {
-                alert('⚠️ La contraseña debe tener al menos 8 caracteres.');
+                alert('  La contraseña debe tener al menos 8 caracteres.');
                 return false;
             }
             
@@ -711,7 +711,7 @@ mysqli_close($con);
             const password = document.getElementById('edit_password').value;
             
             if (password && password.length < 8) {
-                alert('⚠️ La contraseña debe tener al menos 8 caracteres.');
+                alert('  La contraseña debe tener al menos 8 caracteres.');
                 return false;
             }
             

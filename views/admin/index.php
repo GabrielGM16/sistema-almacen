@@ -370,7 +370,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
                                 <div class="activity-icon">
                                     <?php
                                     // Icono según el estado de la sesión
-                                    if ($actividad['estado'] == 'activa') echo '🟢';
+                                    if ($actividad['estado'] == 'activa') echo ' ';
                                     elseif ($actividad['estado'] == 'cerrada') echo '🔴';
                                     else echo '🟡';
                                     ?>
@@ -476,7 +476,7 @@ $nombrePrimero = explode(' ', $nombre ?? '')[0];
                 <div class="card mt-3">
                     <h3>Herramientas Rápidas</h3>
                     <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
-                        <a href="./backup.php" class="btn btn-sm btn-outline btn-block">💾 Respaldo del Sistema</a>
+                        <a href="./backup.php" class="btn btn-sm btn-outline btn-block">  Respaldo del Sistema</a>
                         <a href="./limpiar_sesiones.php" class="btn btn-sm btn-outline btn-block">🧹 Limpiar Sesiones</a>
                         <a href="./logs.php" class="btn btn-sm btn-outline btn-block">📄 Ver Logs</a>
                         <a href="../../logout.php" class="btn btn-sm danger btn-block" onclick="return confirm('¿Deseas cerrar la sesión?');">🚪 Cerrar Sesión</a>

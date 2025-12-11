@@ -503,9 +503,9 @@
 }
 
 .btn-icon.icon-add::before { content: '➕'; }
-.btn-icon.icon-edit::before { content: '✏️'; }
-.btn-icon.icon-delete::before { content: '🗑️'; }
-.btn-icon.icon-save::before { content: '💾'; }
+.btn-icon.icon-edit::before { content: ' '; }
+.btn-icon.icon-delete::before { content: ' '; }
+.btn-icon.icon-save::before { content: ' '; }
 .btn-icon.icon-search::before { content: '🔍'; }
 
 /* ============================================
